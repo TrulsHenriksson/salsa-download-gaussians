@@ -13,9 +13,9 @@ function downloadGaussian(){
         const chunk = rows.slice(i, i + 4)
         csvContent += "\n"
         csvContent += chunk[0].slice(1) + ","
-        csvContent += chunk[1].matchAll(/-?\d+\.\d+/g).join(",") + ","
-        csvContent += chunk[2].matchAll(/-?\d+\.\d+/g).join(",") + ","
-        csvContent += chunk[3].matchAll(/-?\d+\.\d+/g).join(",")
+        csvContent += chunk[1].matchAll(/-?\d+(?:\.\d+)?/g).join(",") + ","
+        csvContent += chunk[2].matchAll(/-?\d+(?:\.\d+)?/g).join(",") + ","
+        csvContent += chunk[3].matchAll(/-?\d+(?:\.\d+)?/g).join(",")
     }
 
     let filename = [...document.getElementsByClassName("cursor-pointer text-left")].filter(el => !el.parentElement.classList.contains("border-transparent"))[0].innerText
